@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "explain-uncertainty"
+version = "0.1.0"
+description = "Training-time explanation uncertainty and faithfulness"
+dependencies = [
+    "torch",
+    "torchvision",
+    "numpy",
+    "pyyaml",
+    "lightning",
+    "captum",
+]
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]

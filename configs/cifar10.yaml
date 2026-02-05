@@ -1,0 +1,43 @@
+experiment:
+  name: cifar10_full_ddp
+
+data:
+  dataset: cifar10
+  data_dir: ./data
+  val_size: 5000
+  num_workers: 4
+
+model:
+  name: resnet18
+
+train:
+  method: ours          # standard_ce | ours
+  epochs: 200
+  batch_size: 32
+  use_val: true
+
+optim:
+  lr: 0.05
+  momentum: 0.9
+  weight_decay: 5.0e-4
+  scheduler: cosine
+  min_lr: 0.0
+
+ours:
+  K: 4
+  sigma: 0.05
+  beta: 10.0
+  tau: 0.0
+  kappa: 1.0
+  lambda_sal: 0.1
+  lambda_unc: 0.1
+  lambda_faith: 1.0
+  T: 2.0
+
+ddp:
+  enabled: true
+  nproc_per_node: 4     # number of GPUs on the node
+  master_port: 29500
+
+logging:
+  run_dir: runs
