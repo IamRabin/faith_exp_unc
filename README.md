@@ -29,9 +29,6 @@ The core dependencies are:
 - `captum`
 - `numpy`, `pyyaml`
 
-If you use Optuna tuning or plotting scripts, you will also need:
-- `optuna`
-- `matplotlib`
 
 ## Training (Lightning)
 
